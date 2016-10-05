@@ -360,11 +360,12 @@ specificOntologyResult <- function(object, ontology) {
 
 comparisonBetweenTwoLists <- function(go1,go2,ontology,direction) {
 
+	ontData <- semData('org.Hs.eg.db', ont=ontology)
 	finalmat <- NULL
 	for (i in 1:nrow(go1)) {
 		mat <- NULL
 		for (j in 1:nrow(go2)) {
-			sim <- goSim(go1[i, 1], go2[j, 1], measure="Wang")
+			sim <- goSim(go1[i, 1], go2[j, 1], semData=ontData, measure="Wang")
 			mat <- rbind(mat, c(go1[i, 1],go1[i, 2],go2[j, 1],go2[j, 2],sim))	
 		}
 		
