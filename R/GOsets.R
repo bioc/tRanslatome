@@ -360,7 +360,7 @@ specificOntologyResult <- function(object, ontology) {
 
 comparisonBetweenTwoLists <- function(go1,go2,ontology,direction) {
 
-	ontData <- semData('org.Hs.eg.db', ont=ontology)
+	ontData <- godata('org.Hs.eg.db', ont=ontology)
 	finalmat <- NULL
 	for (i in 1:nrow(go1)) {
 		mat <- NULL
