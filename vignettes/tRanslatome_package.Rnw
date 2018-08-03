@@ -106,7 +106,7 @@ The function has the following input parameters:
 \begin{itemize}
 \item object, an object of class \code{TranslatomeDataset} containing the data needed for DEGs identification;
 \item   method, a label that specifies the statistical method for DEGs detection. 
-It can have one the following values: \code{limma} \cite{Limma}, \code{t-test} \cite{t-test}, \code{RP} \cite{RP}, \code{TE} \cite{TE}, \code{SAM} \cite{SAM}, \code{ANOTA} \cite{ANOTA}, \code{DESeq} \cite{DESeq}, \code{edgeR} \cite{edgeR} and \code{none};
+It can have one the following values: \code{limma} \cite{Limma}, \code{t-test} \cite{t-test}, \code{RP} \cite{RP}, \code{TE} \cite{TE}, \code{ANOTA} \cite{ANOTA}, \code{DESeq} \cite{DESeq}, \code{edgeR} \cite{edgeR} and \code{none};
 \item  significance.threshold, a threshold on the statistical significance below which the genes are
 considered as differentially expressed, the default is set to 0.05;
 \item   FC.threshold, additional threshold on the absolute log2 fold change, above which the genes are
@@ -322,11 +322,6 @@ The method \code{Radar()} and the method \code{Heatmap()} can be applied also to
   Courtes FC et al. (2013) 
   Translatome analysis of CHO cells identify key growth genes. 
   {\em Journal of Biotechnology}, 167, 215-24.
-
-\bibitem{SAM}
-  Tusher VG, Tibshirani R, Chu G.
-  Significance analysis of microarrays applied to the ionizing radiation response
-  {\em Proc Natl Acad Sci USA.}, 2001, 98(9):5116-21.
   
 \bibitem{ANOTA}
   Larsson O, Sonenberg N, Nadon R.
