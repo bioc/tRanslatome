@@ -101,7 +101,7 @@ setMethod("computeDEGs", "TranslatomeDataset",
 			to calculate DEGs with statistical methods!')
 		
 		if (!(method %in% 
-					c("limma", "SAM", "t-test", "TE", "RP", "ANOTA", "DESeq", "edgeR", "none"))) 
+					c("limma", "t-test", "TE", "RP", "ANOTA", "DESeq", "edgeR", "none"))) 
 			stop('This method is not recognized!')
 		
 		# conditions for the two levels (first is 1,2 and second is 3,4)
@@ -181,8 +181,6 @@ setMethod("computeDEGs", "TranslatomeDataset",
 			# the normal condition, but cond and cond.2 have been built in a
 			# different way (tot/sub + pol ctrl) and (tot/sub + pol case)
 			sig.matrix <- methodLimma(cond, cond.2, cond.vector, cond.2.vector)
-		if (method == "SAM") 
-			sig.matrix <- methodSAM(cond, cond.2, cond.vector, cond.2.vector)
 		if (method == "limma") 
 			sig.matrix <- methodLimma(cond, cond.2, cond.vector, cond.2.vector)
 		if (method == "ANOTA") 
@@ -335,23 +333,6 @@ methodTTest <- function(cond, cond.2, cond.vector, cond.2.vector) {
 							 t.test.pval2, t.test.pval.adj2))	
 }
 
-
-# Implementation of the SAM helper function
-methodSAM <- function(cond, cond.2, cond.vector, cond.2.vector) {
-	
-	data.tot <- list(x=cond, y=(cond.vector+1), logged2=TRUE)
-	sam <- samr(data.tot, resp.type="Two class unpaired", nperms=1000)
-	pv.sam <- samr.pvalues.from.perms(sam$tt, sam$ttstar)
-	pv.sam.adj <- p.adjust(pv.sam, method="BH", n=length(pv.sam))
-
-	data.tot2 <- list(x=cond.2, y=(cond.2.vector+1), logged2=TRUE)
-	sam2 <- samr(data.tot2, resp.type="Two class unpaired", nperms=1000)
-	pv.sam2 <- samr.pvalues.from.perms(sam2$tt, sam2$ttstar)
-	pv.sam.adj2 <- p.adjust(pv.sam2, method="BH", n=length(pv.sam2))
-
-	# build the significance p-values matrix and return it	
-	return(cbind(pv.sam, pv.sam.adj, pv.sam2, pv.sam.adj2))
-}
 
 # Implementation of the limma helper function
 methodLimma <- function(cond, cond.2, cond.vector, cond.2.vector) {
