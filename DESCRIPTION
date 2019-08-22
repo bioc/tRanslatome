@@ -1,7 +1,7 @@
 Package: tRanslatome
 Type: Package
 Title: Comparison between multiple levels of gene expression
-Version: 1.23.0
+Version: 1.23.1
 Date: 2018-08-03
 Author: Toma Tebaldi, Erik Dassi, Galena Kostoska
 Maintainer: Toma Tebaldi <tebaldi@science.unitn.it>, Erik Dassi <erik.dassi@unitn.it>
