@@ -287,7 +287,7 @@ newTranslatomeDataset <- function(expr.matrix, cond.a, cond.b, cond.c, cond.d,
   # if the input dataset is a Biobase ExpressionSet, 
   # extract the expression matrix from it
   finalMatrix = expr.matrix
-  if (class(expr.matrix) == "ExpressionSet") finalMatrix = exprs(expr.matrix)
+  if (is(expr.matrix, "ExpressionSet")) finalMatrix = exprs(expr.matrix)
   
 	return(new(Class="TranslatomeDataset",expr.matrix = finalMatrix, 
 						 cond.a=cond.a, cond.b=cond.b, cond.c=cond.c, cond.d=cond.d, 
