@@ -1,5 +1,5 @@
 import(Biobase)
-import(DESeq)
+import(DESeq2)
 import(GOSemSim)
 import(Heatplus)
 import(RankProd)
