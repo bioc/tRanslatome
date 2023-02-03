@@ -219,7 +219,7 @@ setMethod("Heatmap", "GOsets",
 			colnames(matrix) <- c(label.level.enriched(object)[1], 
 														label.level.enriched(object)[2])
 			print(matrix)
-			heatmap.2(matrix, col = RGBColVec(50)[c(26:50)], key=TRUE, 
+			heatmap.2(matrix, col = g2r.colors(50)[c(26:50)], key=TRUE, 
 								margins = c(7,20), keysize=1.5, denscol="white", na.rm = TRUE,
 							  scale="none", dendrogram="both", trace="none", 
 							  Colv=TRUE, Rowv=TRUE, labRow=NULL, labCol=NULL, 
